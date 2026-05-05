@@ -25,7 +25,7 @@
 
 For this assignment I picked the **AI Tutor system**  basically a smart learning app that figures out what a student knows, what they are struggling with, and then adjusts the study material accordingly. I chose this because honestly it is something I have actually used and I find it interesting how it makes decisions differently for every student.
 
-The whole idea is that instead of showing everyone the same content, the system watches how you answer questions, how long you take, whether you skip stuff — and then builds a picture of where you are at. Based on that it decides what to teach you next. This is a pretty good real world example of an intelligent agent because it has clear inputs, outputs, goals and it is working in a messy unpredictable environment which is basically a student trying to learn something.
+The whole idea is that instead of showing everyone the same content, the system watches how you answer questions, how long you take, whether you skip stuff and then builds a picture of where you are at. Based on that it decides what to teach you next. This is a pretty good real world example of an intelligent agent because it has clear inputs, outputs, goals and it is working in a messy unpredictable environment which is basically a student trying to learn something.
 
 ---
 
@@ -39,23 +39,23 @@ The system I am analyzing is an **AI Tutor for Personalized Student Learning Rec
 
 These are the things the system tries to do well. I came up with six that I think actually matter:
 
-**1. Learning Mastery Rate**
+**1. Learning Mastery Rate**:
 This measures what percentage of the topics a student actually masters. If I complete a chapter but failed the quiz three times before passing, that is not great mastery. The system should be pushing content in a way that the student genuinely understands it, not just guesses through it. Higher mastery rate means the tutor is doing its job properly.
 
-**2. Time-to-Competency**
+**2. Time-to-Competency**:
 How long does it take a student to go from zero knowledge of a topic to actually getting it? This matters because a good tutor should not waste your time repeating stuff you already know or going too fast on stuff you do not understand yet. Shorter time with proper understanding means the system is efficiently personalizing.
 
-**3. Student Engagement Score**
+**3. Student Engagement Score**:
 If students keep coming back, finishing sessions and actually interacting with the material that means the system is keeping them motivated. This is measured using things like how long they stay in a session, how often they return on their own, and whether they quit halfway through exercises. A boring tutor loses students fast.
 
-**4. Personalization Accuracy**
-This checks whether the content the system recommends actually matches where the student is at. If it keeps giving me super easy stuff when I already know it, or throws hard problems at me when I have not learned the basics yet — that is bad personalization. The goal is to always keep the student in what researchers call the Zone of Proximal Development — not too easy, not too hard.
+**4. Personalization Accuracy**:
+This checks whether the content the system recommends actually matches where the student is at. If it keeps giving me super easy stuff when I already know it, or throws hard problems at me when I have not learned the basics yet that is bad personalization. The goal is to always keep the student in what researchers call the Zone of Proximal Development (mean not too easy, not too hard).
 
-**5. Knowledge Retention Index**
-Short term performance can be misleading. A student might score well right after studying but forget everything in a week. So this measure checks performance on delayed tests — like a quiz given 7 or 30 days later. If retention is low, the system needs to use better strategies like spaced repetition.
+**5. Knowledge Retention Index**:
+Short term performance can be misleading. A student might score well right after studying but forget everything in a week. So this measure checks performance on delayed tests like a quiz given 7 or 30 days later. If retention is low, the system needs to use better strategies like spaced repetition.
 
-**6. Fairness Across Students**
-The system should work equally well for different types of students — different backgrounds, languages, learning speeds. If it works great for some students but keeps failing others from a certain group, that is a problem. This measure tracks whether outcome gaps between student groups are shrinking over time.
+**6. Fairness Across Students**:
+The system should work equally well for different types of students or different backgrounds, languages, learning speeds. If it works great for some students but keeps failing others from a certain group, that is a problem. This measure tracks whether outcome gaps between student groups are shrinking over time.
 
 ---
 
@@ -63,17 +63,17 @@ The system should work equally well for different types of students — differen
 
 The AI Tutor runs inside a **web or mobile based learning platform**. It is used by students in schools, universities or even companies doing employee training. The subjects can range from math and programming to languages and science. Sessions can happen over days, weeks or even a full semester so the system needs to remember things about you across multiple logins.
 
-There are also other people involved — not just the student. Teachers can sometimes see what the system recommended and step in. Platform admins control what content is available. So the environment is not just one student and the AI — it is a whole ecosystem.
+There are also other people involved not just the student. Teachers can sometimes see what the system recommended and step in. Platform admins control what content is available. So the environment is not just one student and the AI it is a whole ecosystem.
 
 ---
 
 ### Actuators
 
-These are the ways the AI Tutor actually does things — its outputs and actions:
+These are the ways the AI Tutor actually does things its outputs and actions:
 
 - **Content Recommendation:** Picks what reading, video or exercise to show next based on the student's current level
-- **Exercise Generator:** Creates or selects practice questions at the right difficulty — not too easy, not too hard
-- **Feedback System:** When you get something wrong it does not just say "wrong answer" — it explains why, gives hints, and walks you through the correct thinking
+- **Exercise Generator:** Creates or selects practice questions at the right difficulty not too easy, not too hard
+- **Feedback System:** When you get something wrong it does not just say "wrong answer" it explains why, gives hints, and walks you through the correct thinking
 - **Progress Dashboard:** Shows the student and teacher a visual summary of what topics are mastered, what needs work, and what is coming next
 - **Reminders and Alerts:** Sends notifications when it is a good time to review something based on your forgetting curve
 - **Path Adjustment:** If you are struggling it can add extra foundational lessons. If you are flying through material it can skip ahead and save your time
@@ -85,9 +85,9 @@ These are the ways the AI Tutor actually does things — its outputs and actions
 These are all the inputs the system uses to understand the student:
 
 - **Answer Correctness:** Whether you got a question right or wrong and by how much
-- **Response Time:** How long you took to answer — taking too long usually means you are confused or guessing
-- **Clickstream Data:** Where you clicked, what you replayed, what you skipped — your full navigation history inside the app
-- **Self Reported Confidence:** Some platforms ask "how confident are you about this?" after exercises — that data is useful
+- **Response Time:** How long you took to answer taking too long usually means you are confused or guessing
+- **Clickstream Data:** Where you clicked, what you replayed, what you skipped your full navigation history inside the app
+- **Self Reported Confidence:** Some platforms ask "how confident are you about this?" after exercises that data is useful
 - **Text Input:** If the student types a question or uses a chat feature, the system reads and understands it
 - **Past Academic History:** Your previous grades and performance when you first sign up
 - **Profile Info:** Grade level, what language you study in, what device you are using, what time of day you usually study
@@ -97,87 +97,35 @@ These are all the inputs the system uses to understand the student:
 
 ## Task 2: Environment Classification
 
-| Dimension | My Classification |
-|-----------|------------------|
-| Observability | Partially Observable |
-| Agent Type | Multi-agent |
-| Outcome Type | Stochastic |
-| Task Structure | Sequential |
-| Temporal Nature | Dynamic |
-| State Space | Continuous |
-
----
-
-### Partially Observable
-
-The system cannot actually see inside the student's head. It can only observe behavior — like how fast you answered or whether you got it right. But these signals can be misleading. You might get a question right by guessing or wrong because of a typo. The true understanding level is hidden, so the environment is only partially observable.
-
-### Multi-agent
-
-It is not just the AI and one student. The student is also an agent — they make their own decisions, skip content, or try different strategies. Teachers can also step in and override recommendations. So there are multiple goal-driven agents interacting in the same environment.
-
-### Stochastic
-
-Even if two students have identical profiles and get the same content, their results will probably be different. Mood, stress, distractions, how well they slept — all of these affect learning and the system cannot control or predict them. So outcomes are not deterministic, they are stochastic.
-
-### Sequential
-
-What happens in one session affects the next one. If the system teaches you a concept poorly in session one, you are going to struggle in session three when it builds on that concept. Every decision the tutor makes has consequences down the line so it is definitely sequential.
-
-### Dynamic
-
-The environment keeps changing even when the system is not actively doing anything. The student's knowledge grows (or fades), their motivation goes up and down, new content gets added to the platform, exam deadlines approach. The world does not pause between sessions.
-
-### Continuous
-
-A student's understanding of a topic is not simply "knows it" or "does not know it." It is somewhere on a scale — maybe they understand 60% of it, or they know the theory but not the application. The system has to track this as a continuous value, not a simple yes or no.
+| Dimension | Classification | Justification |
+|-----------|---------------|---------------|
+| Fully Observable vs. Partially Observable | Partially Observable | The system cannot directly see the student's actual understanding it can only observe indirect signals like response accuracy and time taken, which are often misleading. |
+| Single-agent vs. Multi-agent | Multi-agent | The student is not just a passive user, they are an active agent making their own decisions, and teachers can also step in and change things. |
+| Deterministic vs. Stochastic | Stochastic | Even with the same content and same student profile, results will vary because of things like mood, stress, and distractions that the system has no control over. |
+| Episodic vs. Sequential | Sequential | What the tutor decides in session one directly affects session two and beyond a bad recommendation early on can cause problems that build up over time. |
+| Static vs. Dynamic | Dynamic | The student's knowledge, motivation, and external situation keep changing between sessions, so the environment never stays the same even when the system is idle. |
+| Discrete vs. Continuous | Continuous | Student mastery is not simply "knows it" or "does not" it exists on a scale, and the system has to track it as a continuous value across multiple topics at once. |
 
 ---
 
 ## Task 3: Critical Analysis
 
-### 3.1 Most Challenging Dimension — Partial Observability
+### 3.1 Most Technically Challenging Dimension
 
 In my opinion the hardest part of building this system is that it can never directly see what is actually going on inside the student's mind. Everything it knows is based on indirect signals, and those signals are often misleading.
+Out of all six dimensions, Partial Observability is the hardest to implement technically. The real challenge is that the system needs to measure something it cannot directly access the student's actual understanding. Engineers have to rely on indirect signals like response accuracy and response time, but these are unreliable. A student could guess correctly or make a silly mistake, and the system cannot distinguish between the two. To work around this, engineers build probabilistic models like Bayesian Knowledge Tracing which track a confidence probability for each concept per student and update it after every interaction. This requires significant computational power, large amounts of training data to calibrate properly, and even then the model can still misread a student — making it the most technically demanding dimension to solve.
 
-Think about it — if a student answers a question correctly, did they actually understand it? Maybe. Or maybe they remembered seeing that exact question before. Or they guessed and got lucky. The system has no way to know for sure. And if it assumes they understood and moves on, it might build the rest of the lesson plan on a shaky foundation.
+### 3.2 Utility Function Speed vs Accuracy Trade-off
 
-This is why the system needs probabilistic models — like Bayesian Knowledge Tracing — which do not just say "student knows this" but instead maintain a probability like "there is a 73% chance the student has mastered this concept." It uses every new piece of evidence — right answers, wrong answers, response times — to update that probability.
-
-The problem gets worse because this is also a sequential environment. A wrong guess about the student's knowledge level does not just affect today's session — it affects every session after that. The errors compound. A student who gets misidentified as advanced might be pushed into content they are not ready for and end up completely lost two weeks later.
-
-On top of that different students express their knowledge differently. A student might be genuinely confused but still perform okay on multiple choice questions by eliminating wrong answers. Another might understand the material deeply but freeze under timed conditions. Building a system that handles all of this variation is genuinely difficult.
-
----
-
-### 3.2 Utility Function
-
-Here is the utility function I am proposing for the AI Tutor:
+For an AI Tutor the core trade-off is between delivering content quickly and making sure the student actually learns it properly. The proposed utility function is:
 
 ```
-U = 0.35 × M + 0.30 × R − 0.15 × T − 0.20 × D
+U = 0.4 × A − 0.6 × S
+
 ```
+Where A is Accuracy how well the student is mastering the content and S is Speed Cost how much time is being spent per topic. The higher weight on S means the system tries to keep sessions efficient. If the weight of A is doubled from 0.4 to 0.8, the agent shifts its priority completely toward learning quality. It will slow down, repeat concepts more, add extra practice questions, and refuse to move forward until the student demonstrates solid understanding even if it takes much longer. The system becomes a thorough tutor but a slow one.
 
-Where:
-
-| Variable | What it means |
-|----------|--------------|
-| M | Mastery Score — how well the student is learning the material (0 to 1) |
-| R | Retention Index — how well they remember it later, tested after 7-30 days (0 to 1) |
-| T | Time Cost — how much time it is taking per unit of learning (normalized) |
-| D | Dropout Risk — probability the student is going to disengage soon (0 to 1) |
-
-**Why these weights?**
-
-M and R together get 0.65 of the weight because at the end of the day this is a learning system — if the student is not learning and remembering, nothing else matters. T gets a smaller negative weight because efficiency matters but it is less important than actual learning. D gets a decent negative weight because a student who quits learns nothing — keeping them engaged is essential.
-
-**How it affects behavior:**
-
-When M is low the system will slow down and spend more time on practice and explanation before introducing new topics. When D spikes — meaning the student looks like they are about to give up — the system switches to shorter, easier, more rewarding tasks to rebuild confidence. When T keeps going up without improvement in M, the system tries a completely different approach — maybe switching from text to video or trying a different type of exercise.
-
-**What happens if we double the weight of R (retention)?**
-
-If R's weight goes from 0.30 to 0.60, the system becomes much more focused on long term memory. It will start scheduling more review sessions, spacing them out over time, and will not move on to new content until it is confident the student will still remember the current material days later. This is actually better for real learning — but it slows things down. Students might feel like they are not making progress and could get frustrated, which would push D up. So doubling R without also adjusting D's weight could backfire. It shows how carefully you need to balance these weights.
+This is why the system needs probabilistic models like Bayesian Knowledge Tracing which do not just say "student knows this" but instead maintain a probability like "there is a 70% chance this student has mastered this concept" and update that probability after every single interaction based on new evidence like correct answers, wrong answers, and response time.
 
 ---
 
