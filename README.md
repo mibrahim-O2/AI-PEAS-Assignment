@@ -136,77 +136,62 @@ This is why the system needs probabilistic models like Bayesian Knowledge Tracin
   "system_name": "AI Tutor for Personalized Student Learning Recommendations",
   "peas": {
     "performance_measures": [
-      "Learning Mastery Rate: percentage of learning objectives achieved within an instructional period",
-      "Time-to-Competency: average time from concept introduction to reaching competency threshold",
-      "Student Engagement Score: composite of session duration, return rate, and interaction frequency",
+      "Learning Mastery Rate: percentage of topics a student actually masters within an instructional period",
+      "Time-to-Competency: average time from zero knowledge of a topic to reaching proper understanding",
+      "Student Engagement Score: composite of session duration, return rate, and task completion frequency",
       "Personalization Accuracy: alignment of recommendations with student Zone of Proximal Development",
-      "Knowledge Retention Index: performance on delayed assessments administered 7 to 30 days later",
-      "Fairness Across Students: reduction in outcome gaps across different student demographics"
+      "Knowledge Retention Index: performance on delayed tests administered 7 to 30 days after instruction",
+      "Fairness Across Students: reduction in outcome gaps across different backgrounds, languages, and learning speeds"
     ],
-    "environment": "Web and mobile based Learning Management System serving K-12, university, and corporate learners across subjects including math, programming, language, and science over multi-session engagements",
+    "environment": "Web and mobile based Learning Management System used by students in schools, universities, and corporate training across subjects like math, programming, language, and science over multi-session engagements involving students, teachers, and platform admins",
     "actuators": [
-      "Content Recommendation Engine: selects and sequences study material based on learner model",
-      "Adaptive Exercise Generator: adjusts difficulty and type of practice questions dynamically",
-      "Feedback and Hint System: delivers real-time explanations and step-by-step guidance",
-      "Progress Dashboard: visual summary of mastery levels for student and teacher",
-      "Reminders and Scheduling Alerts: spaced repetition notifications based on forgetting curve",
-      "Curriculum Path Adjustment: adds remedial content or skips ahead based on performance"
+      "Content Recommendation: picks reading, video, or exercise based on student current level",
+      "Exercise Generator: creates or selects practice questions at the right difficulty",
+      "Feedback System: explains wrong answers, gives hints, and walks through correct thinking",
+      "Progress Dashboard: visual summary of mastered topics, areas needing work, and upcoming content",
+      "Reminders and Alerts: sends review notifications based on forgetting curve",
+      "Path Adjustment: adds foundational lessons when struggling or skips ahead when performing well"
     ],
     "sensors": [
-      "Answer Correctness: right or wrong responses to exercises and quizzes",
-      "Response Time: time taken per question as indicator of confusion or confidence",
-      "Clickstream Data: navigation patterns, replays, skips, and interface interactions",
-      "Self Reported Confidence: student ratings of their own understanding after tasks",
-      "Text Input: free text questions and chat messages processed through NLU",
-      "Past Academic History: previous grades and assessment results from enrollment",
-      "Profile Metadata: grade level, language, device type, and study time patterns",
-      "Attention Signals: webcam or keyboard dynamics as proxies for fatigue or distraction"
+      "Answer Correctness: whether student got a question right or wrong and by how much",
+      "Response Time: how long student took to answer as indicator of confusion or confidence",
+      "Clickstream Data: clicks, replays, skips, and full navigation history inside the app",
+      "Self Reported Confidence: student ratings of their own understanding after exercises",
+      "Text Input: questions or chat messages typed by student processed through NLU",
+      "Past Academic History: previous grades and performance from enrollment",
+      "Profile Info: grade level, language, device type, and time of day study patterns",
+      "Attention Signals: camera data or typing patterns to detect fatigue or distraction"
     ]
   },
   "environment_classification": {
-    "observability": {
+    "fully_observable_vs_partially_observable": {
       "choice": "Partially Observable",
-      "justification": "The system cannot directly access the student's true understanding. It relies on indirect behavioral signals like response accuracy and timing which are often ambiguous and misleading."
+      "justification": "The system cannot directly see the student's actual understanding, it can only observe indirect signals like response accuracy and time taken, which are often misleading."
     },
-    "agent_structure": {
+    "single_agent_vs_multi_agent": {
       "choice": "Multi-agent",
-      "justification": "The student acts as an independent goal-driven agent making their own decisions, and teachers may also intervene, making this a multi-agent environment."
+      "justification": "The student is not just a passive user, they are an active agent making their own decisions, and teachers can also step in and change things."
     },
-    "outcome_predictability": {
+    "deterministic_vs_stochastic": {
       "choice": "Stochastic",
-      "justification": "Student learning outcomes vary due to uncontrollable factors like mood, stress, and individual memory differences even when the same content is delivered."
+      "justification": "Even with the same content and same student profile, results will vary because of things like mood, stress, and distractions that the system has no control over."
     },
-    "task_structure": {
+    "episodic_vs_sequential": {
       "choice": "Sequential",
-      "justification": "Each instructional decision affects future sessions. Poor teaching in one session creates knowledge gaps that compound into bigger problems later."
+      "justification": "What the tutor decides in session one directly affects session two and beyond, a bad recommendation early on can cause problems that build up over time."
     },
-    "temporal_dynamics": {
+    "static_vs_dynamic": {
       "choice": "Dynamic",
-      "justification": "The environment keeps changing between sessions as student knowledge evolves, motivation shifts, and platform content gets updated independently of the agent."
+      "justification": "The student's knowledge, motivation, and external situation keep changing between sessions, so the environment never stays the same even when the system is idle."
     },
-    "state_space": {
+    "discrete_vs_continuous": {
       "choice": "Continuous",
-      "justification": "Student mastery exists on a gradient not as a binary state. The system tracks knowledge levels as continuous probability values across multiple topics."
+      "justification": "Student mastery is not simply knows it or does not, it exists on a scale and the system has to track it as a continuous value across multiple topics at once."
     }
   },
-  "utility_function": {
-    "formula": "U = 0.35 * M + 0.30 * R - 0.15 * T - 0.20 * D",
-    "variables": {
-      "M": "Mastery Score normalized between 0 and 1",
-      "R": "Retention Index from delayed assessments normalized between 0 and 1",
-      "T": "Normalized time cost per unit of learning",
-      "D": "Dropout risk probability between 0 and 1"
-    },
-    "weights": {
-      "w1_mastery": 0.35,
-      "w2_retention": 0.30,
-      "w3_time_cost": 0.15,
-      "w4_dropout_risk": 0.20
-    },
-    "behavioral_influence": "System slows down when mastery is low, switches to engaging tasks when dropout risk is high, and restructures the learning path when time cost increases without mastery gains",
-    "effect_of_doubling_w2": "Doubling retention weight shifts the system toward spaced repetition and delayed progression. Improves long term memory but slows pace and may increase dropout risk if students feel stuck."
-  }
+  "utility_function": "U = 0.4 * A - 0.6 * S"
 }
+
 ```
 
 ---
