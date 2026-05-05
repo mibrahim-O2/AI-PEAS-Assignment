@@ -7,6 +7,7 @@
 **Reference:** Russell & Norvig – *Artificial Intelligence: A Modern Approach*, Chapter 2
 
 **Student Name:** Muhammad Ibrahim
+**Roll No:** 2k23/CSE/94 
 **Date:** May 5, 2026
 
 ---
